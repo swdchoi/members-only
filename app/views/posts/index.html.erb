@@ -21,7 +21,7 @@
      <% if current_user.id == comment.post.user.id%>
        <br />
         <p>
-          <%= link_to "Show this comment", post_comment_path(post, comment), class:"btn btn-secondary", class:"btn btn-secondary"%>
+          <%= link_to "Show this comment", post_comment_path(post, comment), class:"btn btn-secondary" %>
         </p>
       <% end %>
     <% end %>
