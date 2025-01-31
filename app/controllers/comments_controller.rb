@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[ edit destroy ]
+  before_action :correct_user, only: %i[edit update destroy]
   before_action :set_post
   # GET /comments or /comments.json
   def index
@@ -61,6 +63,11 @@ class CommentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params.expect(:id))
+    end
+
+    def correct_user
+      @comment = current_user.comment.find_by(id: params[:id])
+      redirect_to posts_path, notice: "Not your Post" if @post.nil?
     end
 
     def set_post

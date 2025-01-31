@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my first Ruby on Rails Full Web Application.
 
-Things you may want to cover:
+Features:
+- You can sign in, sign out, register, and edit you account all from gem -> Devise.
+- Create, edit, delete Posts if you are signed in.
+- Your email will be displayed on the Post to show the author.
+- Have the features above to ONLY the posts you have created.
+- Write comments for each Post and have your email displayed as your comment.
+- Create, edit, delete Comments if you are signed in.
+- Only access to changing your own comments.
 
-* Ruby version
+The entire front end is created by Bootstrap...
+- Used Dark mode
 
-* System dependencies
+Future Potential features:
+- Want to add Hotwire and Turbo to add, edit, delete comments on the main page or show page of Posts...
+- Potentially transofrom this blog app into something more useful like a diary...
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
