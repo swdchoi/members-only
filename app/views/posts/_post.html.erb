@@ -1,20 +1,19 @@
 <div id="<%= dom_id post %>">
-
-  <% if  user_signed_in? %>
-  <p>
+<div class="card">
+  <div class="card-header">
+  <p class="pt-2">
     <strong>User:</strong>
     <%= post.user.email %>
   </p>
-  <% end %>
-
-  <p>
-    <strong>Header:</strong>
-    <%= post.header %>
+  </div>
+<div class="m-4">
+  <p class="card-title ml-2">
+    <strong><%= post.header %></strong>
   </p>
 
-  <p>
-    <strong>Content:</strong>
+  <p class="card-body">
     <%= post.content %>
   </p>
-
+</div>
+</div>
 </div>

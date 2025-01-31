@@ -1,10 +1,27 @@
 
-
+<div class="m-3">
 <%= render @post %>
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
+  <br />
+  <%= link_to "Edit this post", edit_post_path(@post), class:"btn btn-secondary" %> |
+  <%= link_to "Back to posts", posts_path, class:"btn btn-secondary" %>
+  <br />
+  <br />
 
-  <%= button_to "Destroy this post", @post, method: :delete %>
+   <p><strong>Comments:</strong></p>
+
+  <% @comments.each do |comment| %>
+    <% if @post == comment.post %>
+      <%= render comment %>
+     <% if current_user.id == comment.post.user.id%>
+       <br />
+        <p>
+          <%= link_to "Show this comment", post_comment_path(post, comment), class:"btn btn-secondary", class:"btn btn-secondary"%>
+        </p>
+      <% end %>
+    <% end %>
+    <% end %>
+  <br />
+  <%= button_to "Destroy this post", @post, method: :delete, class:"btn btn-danger mb-3" %>
+  <br />
 </div>

@@ -1,4 +1,4 @@
-<%= form_for [@post, @comment] do |form| %>
+<%= form_for [@post, @comment], :html => {:class => 'form-signin'} do |form| %>
   <% if comment.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -10,13 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+  <br/>
   <div>
-    <%= form.label :comment, style: "display: block" %>
-    <%= form.text_field :comment %>
+    <%= form.text_field :comment, class:"form-control" %>
   </div>
-
+  <br />
   <div>
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary m-3"%>
   </div>
 <% end %>

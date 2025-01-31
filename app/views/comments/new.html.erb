@@ -1,11 +1,14 @@
 <% content_for :title, "New comment" %>
-
-<h1>New comment</h1>
+<div class="card m-5 p-5">
+<div class="card-header">
+<h1 class=>New Comment</h1>
+</div>
 
 <%= render "form", comment: @comment %>
 
 <br>
 
 <div>
-  <%= link_to "Back to comments", post_comments_path %>
+  <%= link_to "Back to Posts", posts_path, class:"btn btn-secondary" %>
+</div>
 </div>

@@ -22,8 +22,7 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    @comment = @post.comment.build(comment_params)
-
+    @comment = @post.comment.build(comment_params.merge(user_id: current_user.id))
     respond_to do |format|
       if @comment.save
         format.html { redirect_to root_url( allow_other_host: true), notice: "Comment was successfully created." }
@@ -53,7 +52,7 @@ class CommentsController < ApplicationController
     @comment.destroy!
 
     respond_to do |format|
-      format.html { redirect_to comments_path, status: :see_other, notice: "Comment was successfully destroyed." }
+      format.html { redirect_to posts_path, status: :see_other, notice: "Comment was successfully destroyed." }
       format.json { head :no_content }
     end
   end

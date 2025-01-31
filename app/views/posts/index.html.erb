@@ -1,27 +1,37 @@
 <% content_for :title, "Posts" %>
+<div class="card m-3 p-5">
+<h1 class="text-center">Blog App</h1>
+<br />
 
-<h1>Posts</h1>
-
+<h5 class="text-center">Hi... <% if user_signed_in? %><%= current_user.email %><%end%></h5>
+<br />
+<br />
 <div id="posts">
   <% @posts.each do |post| %>
     <%= render post %>
+    <br />
     <p>
-      <%= link_to "Show this post", post_path(post) %>
+      <%= link_to "Show this post", post_path(post), class:"btn btn-secondary" %>
     </p>
+    <p><strong>Comments:</strong></p>
   <% @comments.each do |comment| %>
     <% if post == comment.post %>
       <%= render comment %>
     <% if current_user.nil? == false %>
      <% if current_user.id == comment.post.user.id%>
+       <br />
         <p>
-          <%= link_to "Show this comment", post_comment_path(post, comment) %>
+          <%= link_to "Show this comment", post_comment_path(post, comment), class:"btn btn-secondary", class:"btn btn-secondary"%>
         </p>
       <% end %>
     <% end %>
     <% end %>
   <% end %>
-    <%= link_to "New comment", new_post_comment_path(post) %>
+  <br />
+    <%= link_to "New comment", new_post_comment_path(post), class:"btn btn-primary ms-3" %>
+  <br />
+  <br />
   <% end %>
 </div>
 
-<%= link_to "New post", new_post_path %>
+<%= link_to "New post", new_post_path, class:"btn btn-primary mx-3" %>

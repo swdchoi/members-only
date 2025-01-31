@@ -1,17 +1,13 @@
-<div id="<%= dom_id comment %>">
-  <p>
-    <strong>Post:</strong>
-    <%= comment.post_id %>
+
+<div id="<%= dom_id comment %>" class="p-3">
+  <div class="card p-3">
+  <p class="card-title">
+    <strong><%= comment.user.email %></strong>
   </p>
 
-  <p>
-    <strong>Post:</strong>
-    <%= comment.post.user.email %>
-  </p>
-
-  <p>
-    <strong>Comment:</strong>
+  <div class="card-text m-3">
     <%= comment.comment %>
-  </p>
-
+  </div>
+  
+  </div>
 </div>
