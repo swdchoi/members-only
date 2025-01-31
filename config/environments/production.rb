@@ -4,7 +4,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   # Code is not reloaded between requests.
   config.enable_reloading = false
-
+  config.secret_key_base = 'd81557fcd394b6546cbb67a1bed553546b1a75452e8b7e8ff1983a66e7301fc3f5affa399ef53592209c734440c4be5725cd6dc09cb18ced27bbe33343652278'
   # Eager load code on boot for better performance and memory savings (ignored by Rake tasks).
   config.eager_load = true
 
