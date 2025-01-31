@@ -65,8 +65,8 @@ class CommentsController < ApplicationController
     end
 
     def correct_user
-      @comment = current_user.comment.find_by(id: params[:id])
-      redirect_to posts_path, notice: "Not your Comment" if @post.nil?
+      @comment = Comment.find_by(user_id: current_user.id)
+      redirect_to posts_path, notice: "Not your Comment" if @comment.nil?
     end
 
     def set_post

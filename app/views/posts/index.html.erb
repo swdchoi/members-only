@@ -18,7 +18,7 @@
     <% if post == comment.post %>
       <%= render comment %>
     <% if current_user.nil? == false %>
-     <% if current_user.id == comment.post.user.id%>
+     <% if current_user.id == comment.user.id%>
        <br />
         <p>
           <%= link_to "Show this comment", post_comment_path(post, comment), class:"btn btn-secondary" %>
