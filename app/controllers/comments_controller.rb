@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: %i[ edit destroy ]
+  before_action :authenticate_user!, only: %i[ edit new destroy ]
   before_action :correct_user, only: %i[edit update destroy]
   before_action :set_post
   # GET /comments or /comments.json
@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     @comment = @post.comment.build(comment_params.merge(user_id: current_user.id))
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to root_url( allow_other_host: true), notice: "Comment was successfully created." }
+        format.html { redirect_to root_url(allow_other_host: true), notice: "Comment was successfully created." }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-  #before_action :set_comment, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: %i[ edit new destroy ]
+  # before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[ edit show new destroy ]
   before_action :correct_user, only: %i[edit update destroy]
   # GET /posts or /posts.json
   def index
@@ -67,10 +67,10 @@ class PostsController < ApplicationController
       @post = Post.find(params.expect(:id))
     end
 
-    #def set_comment
-      #@comment = Comment.find(params[:post_id])
-      #redirect_to post_path if @comment.nil?
-    #end
+    # def set_comment
+    # @comment = Comment.find(params[:post_id])
+    # redirect_to post_path if @comment.nil?
+    # end
 
     def correct_user
       @post = current_user.post.find_by(id: params[:id])
